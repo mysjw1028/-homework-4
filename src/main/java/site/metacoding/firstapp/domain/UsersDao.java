@@ -2,7 +2,6 @@ package site.metacoding.firstapp.domain;
 
 import java.util.List;
 
-import site.metacoding.firstapp.web.dto.request.users.JoinDto;
 import site.metacoding.firstapp.web.dto.request.users.LoginDto;
 
 public interface UsersDao {

@@ -26,15 +26,15 @@
 					<c:choose>
 						<c:when test="${empty principal}">
 							<li class="nav-item"><a class="nav-link" href="/login">로그인</a></li>
-							<li class="nav-item"><a class="nav-link" href="/join">회원가입</a></li>
+							<li class="nav-item"><a class="nav-link" href="/join">개인회원가입</a></li>
+							<li class="nav-item"><a class="nav-link" href="/admin/join">관리자회원가입</a></li>
 						</c:when>
 						<c:otherwise>
 							<li class="nav-item"><a class="nav-link" href="/product">상품전체보기페이지</a></li>
 							<li class="nav-item"><a class="nav-link" href="/buy/buylist/${principal.id}">구매내역보기</a></li>
 							<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
-					<!--<li class="nav-item"><a class="nav-link" href="/product/insert">상품등록페이지</a></li> 
-						 	<li class="nav-item"><a class="nav-link" href="/users/${principal}">회원정보보기</a></li> -->
 						</c:otherwise>
+
 					</c:choose>
 				</ul>
 			</div>

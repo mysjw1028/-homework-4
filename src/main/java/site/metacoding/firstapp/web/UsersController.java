@@ -21,7 +21,6 @@ import site.metacoding.firstapp.web.dto.request.users.LoginDto;
 @RequiredArgsConstructor
 @Controller
 public class UsersController {
-	private final UsersService usersService;
 	private final HttpSession session;
 	private final UsersDao usersDao;
 
