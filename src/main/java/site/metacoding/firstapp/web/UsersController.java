@@ -16,6 +16,7 @@ import site.metacoding.firstapp.domain.ProductDao;
 import site.metacoding.firstapp.domain.Users;
 import site.metacoding.firstapp.domain.UsersDao;
 import site.metacoding.firstapp.web.dto.CMRespDto;
+import site.metacoding.firstapp.web.dto.LoginRespDto;
 import site.metacoding.firstapp.web.dto.request.users.LoginDto;
 
 @RequiredArgsConstructor
@@ -45,12 +46,12 @@ public class UsersController {
 
 	@PostMapping("/login")
 	public String 로그인(LoginDto loginDto) {// 로그인 / xml에 쿼리 있는지 확인 / login jsp name 확인하기
-		Users usersPS = usersDao.login(loginDto);
+		LoginRespDto loginRespDto = new LoginRespDto(usersDao.login(loginDto));
 		System.out.println("==============================");
-		System.out.println(usersPS.getId());
+		System.out.println(loginRespDto.getAdminName());
 		System.out.println("==============================");
-		session.setAttribute("principal", usersPS);
-		if (usersPS != null) {
+		session.setAttribute("principal", loginRespDto);
+		if (loginRespDto != null) {
 			return "redirect:/";// model를 사용 했을때 "redirect:/" 이거를 사용해야 화면이 보여진다.
 		} else {// 인증실패하면
 			return "users/login";

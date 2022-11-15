@@ -30,12 +30,22 @@
 							<li class="nav-item"><a class="nav-link" href="/admin/join">관리자회원가입</a></li>
 						</c:when>
 						<c:otherwise>
-							<li class="nav-item"><a class="nav-link" href="/product">상품전체보기페이지</a></li>
-							<li class="nav-item"><a class="nav-link" href="/buy/buylist/${principal.id}">구매내역보기</a></li>
 							<li class="nav-item"><a class="nav-link" href="/logout">로그아웃</a></li>
+							<li class="nav-item"><a class="nav-link" href="/product">상품전체보기페이지</a></li>
 						</c:otherwise>
-
 					</c:choose>
+
+					<c:if test="${ principal.userName != null}"> <
+					<li class="nav-item"><a class="nav-link" href="/buy/buylist/${principal.id}">구매내역보기</a></li>
+					</c:if>
+
+
+					<c:if test="${ principal.adminName != null}"> <
+						<li class="nav-item"><a class="nav-link" href="/product/insert">상품 등록하기</a></li>
+						<li class="nav-item"><a class="nav-link" href="/">개인회원 정보보기</a></li>
+					</c:if>
+
+
 				</ul>
 			</div>
 		</div>
