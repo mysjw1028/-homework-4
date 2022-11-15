@@ -5,6 +5,7 @@ import java.sql.Timestamp;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import site.metacoding.firstapp.web.dto.request.admin.AdminLoginDto;
 import site.metacoding.firstapp.web.dto.request.users.LoginDto;
 import site.metacoding.firstapp.web.dto.request.users.UpdateDto;
 
@@ -18,11 +19,11 @@ public class Admin {
 	private String email;
 	private Timestamp createdAt;
 	
-//	
-//	public Admin(AdminLoginDto adminloginDto) {
-//		this.adminName = loginDto.getadminloginDtoName();
-//		this.password = loginDto.getPassword();
-//	}
+	
+	public Admin(AdminLoginDto adminloginDto) {
+		this.adminName = adminloginDto.getUserName();
+		this.password = adminloginDto.getPassword();
+	}
 	
 	
 }
