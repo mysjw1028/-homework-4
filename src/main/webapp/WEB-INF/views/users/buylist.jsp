@@ -42,7 +42,7 @@
 						<td class="hidden" name="id">${buy.id}</td>
 						<form action="/buy/buylist/${buy.id}/delete" method="POST">
 							<input type="hidden" value="${buy.buyQty}" , name="buyQty"> <input type="hidden"
-								value="${buy.id}" , name="id">
+								value="${buy.productId}" , name="productId">
 							<td><button type="submit" class="btn btn-danger">구매취소</button></td>
 						</form>
 					</tr>

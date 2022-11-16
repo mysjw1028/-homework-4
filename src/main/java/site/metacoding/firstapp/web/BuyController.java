@@ -81,10 +81,12 @@ public class BuyController {
 	}
 
 	@PostMapping("/buy/buylist/{id}/delete") // 5번 deleteById -> 삭제하기 -> post로 값 삭제
-	public String 삭제하기(@PathVariable Integer id) {
-		//List<BuyListDto> buyList = buyDao.buyList(id);
+	public String 삭제하기(@PathVariable Integer id, BuyDto buyDto) {
+		System.out.println("디버그: "+ buyDto.getBuyQty());
+		System.out.println("디버그: "+ buyDto.getProductId());
 		buyDao.deleteById(id);
-		
+		productDao.buyProductQty(buyDto);
+
 		return "redirect:/";
 	}
 }

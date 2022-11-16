@@ -16,7 +16,8 @@
 
 	<select id="findAll"
 		resultType="site.metacoding.firstapp.domain.Product">
-		SELECT product_id, row_number() over(order BY product_id )as NO,
+		SELECT product_id, row_number() over(order BY product_id
+		)as NO,
 		product_name, product_price, product_qty,
 		created_at
 		FROM product
@@ -37,9 +38,9 @@
 		WHERE
 		product_id = #{productId}
 	</update>
-	
+
 	<update id="updateQty">
-		UPDATE product SET 
+		UPDATE product SET
 		product_qty = #{productQty}
 		WHERE
 		product_id = #{productId}
@@ -48,5 +49,9 @@
 	<delete id="deleteById">
 		DELETE FROM product WHERE product_id = #{productId}
 	</delete>
-
+	
+	<update id="buyProductQty">
+		UPDATE product SET product_qty = product_qty+ #{buyQty}
+		WHERE product_id = #{productId}
+	</update>
 </mapper>
