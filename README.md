@@ -17,8 +17,9 @@
 - 상품 등록시 동일한 상품명 못들어가게 하기
 
 ###
-
-
+admin
+-> 회원가입시 user와 같은 페이지를 공유하기 때문에 user_name을 넣어 준 후 자바스크립트에
+ onclick="javascript: form.action='/admin/login'; 를 걸어줬다.
 ### 4. 테이블 생성
 ```sql
 create table product(
@@ -45,7 +46,14 @@ create table buy(
     buy_name VARCHAR(50),
     created_at  TIMESTAMP
 );
-
+create table admin(
+ 	id int KEY auto_increment,
+   admin_name varchar(20) NOT null,
+   user_name varchar(20),
+   password varchar(20) NOT null,
+   email varchar(20) NOT null,
+   created_at TIMESTAMP NOT null
+);
 ```
 
 ### 5. 더미데이터

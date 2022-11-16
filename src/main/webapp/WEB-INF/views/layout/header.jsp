@@ -35,12 +35,12 @@
 						</c:otherwise>
 					</c:choose>
 
-					<c:if test="${ principal.userName != null}"> <
-					<li class="nav-item"><a class="nav-link" href="/buy/buylist/${principal.id}">구매내역보기</a></li>
+					<c:if test="${ principal.userName != null}">
+						<li class="nav-item"><a class="nav-link" href="/buy/buylist/${principal.id}">구매내역보기</a></li>
 					</c:if>
 
 
-					<c:if test="${ principal.adminName != null}"> <
+					<c:if test="${ principal.adminName != null}">
 						<li class="nav-item"><a class="nav-link" href="/product/insert">상품 등록하기</a></li>
 						<li class="nav-item"><a class="nav-link" href="/">개인회원 정보보기</a></li>
 					</c:if>

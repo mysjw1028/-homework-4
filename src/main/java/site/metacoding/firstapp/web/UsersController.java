@@ -48,9 +48,10 @@ public class UsersController {
 	public String 로그인(LoginDto loginDto) {// 로그인 / xml에 쿼리 있는지 확인 / login jsp name 확인하기
 		LoginRespDto loginRespDto = new LoginRespDto(usersDao.login(loginDto));
 		System.out.println("==============================");
-		System.out.println(loginRespDto.getAdminName());
+		System.out.println(loginRespDto.getId());
 		System.out.println("==============================");
 		session.setAttribute("principal", loginRespDto);
+	
 		if (loginRespDto != null) {
 			return "redirect:/";// model를 사용 했을때 "redirect:/" 이거를 사용해야 화면이 보여진다.
 		} else {// 인증실패하면

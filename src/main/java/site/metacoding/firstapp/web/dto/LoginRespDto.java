@@ -1,9 +1,5 @@
 package site.metacoding.firstapp.web.dto;
 
-import java.sql.Timestamp;
-
-import org.apache.catalina.User;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import site.metacoding.firstapp.domain.Admin;

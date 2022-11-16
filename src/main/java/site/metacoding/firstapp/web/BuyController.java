@@ -16,9 +16,11 @@ import site.metacoding.firstapp.domain.BuyDao;
 import site.metacoding.firstapp.domain.Product;
 import site.metacoding.firstapp.domain.ProductDao;
 import site.metacoding.firstapp.domain.Users;
-
+import site.metacoding.firstapp.domain.UsersDao;
+import site.metacoding.firstapp.web.dto.LoginRespDto;
 import site.metacoding.firstapp.web.dto.request.buy.BuyDto;
 import site.metacoding.firstapp.web.dto.request.buy.BuyListDto;
+import site.metacoding.firstapp.web.dto.request.users.LoginDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -26,6 +28,8 @@ public class BuyController {
 	private final HttpSession session;
 	private final ProductDao productDao;
 	private final BuyDao buyDao;
+	private final UsersDao usersDao;
+
 
 	@GetMapping("/buy/{productId}")
 	public String buyTable(@PathVariable Integer productId, Model model) {
@@ -33,13 +37,16 @@ public class BuyController {
 		return "users/buy";
 	}
 
-	@PostMapping("/buy")
-	public String buy( BuyDto buyDto) {// 테이블 수정후 jsp name 확인하기
-		Users principal = (Users) session.getAttribute("principal");
-		session.setAttribute("principal", principal);
-		if (principal == null) {
+	@PostMapping("/buy/{productId}")
+	public String buy(BuyDto buyDto) {// 테이블 수정후 jsp name 확인하기
+		LoginRespDto loginRespDto = (LoginRespDto)session.getAttribute("principal");
+		if (loginRespDto == null) {
 			return "redirect:/";
-		}
+		}//setAttribute를 쓰는게 아니라 getAttribute를 써야한다 
+		// - LoginRespDto에 있는 값을 들고와서 쓰는거기때문에 getAttribute
+		// - 다운캐스팅해서 넣어줘야함 이유 -> 값 크기 ? 가 안 맞아서 넣어줘야 실행이 된다.
+		
+		
 		// 1. findById로 p1에 사려던 품목을 담김
 		Product p1 = productDao.findById(buyDto.getProductId());
 		System.out.println(buyDto.getProductId());
@@ -64,11 +71,11 @@ public class BuyController {
 	}// - (음수 못들어가게) js 로 구현을 해도 -면 자동으로 +가됨
 
 	@GetMapping("/buy/buylist/{id}")
-	//유저에 대한 구매목록 나오게 하는 주소
+	// 유저에 대한 구매목록 나오게 하는 주소
 	public String buylist(@PathVariable Integer id, Model model) {
-		//2. 아이디를 받아
+		// 2. 아이디를 받아
 		List<BuyListDto> buyList = buyDao.buyList(id);
-		//3. 유저 아이디에대한 구매목록을 띄움
+		// 3. 유저 아이디에대한 구매목록을 띄움
 		model.addAttribute("buy", buyList);
 		return "users/buylist";
 	}
