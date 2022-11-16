@@ -24,7 +24,7 @@
 	</insert>
 	
 	<delete id="deleteById">
-		DELETE FROM buy WHERE product_id = #{productId}
+		DELETE FROM buy WHERE id = #{id}
 	</delete>
 
 </mapper>
