@@ -64,6 +64,8 @@ public class UsersController {
 		session.invalidate();// 로그아웃 -> 화면은 따로 필요없다
 		return "redirect:/";
 	}
+	
+	
 
 //	@GetMapping("/join/userNameCheck")
 //	public @ResponseBody CMRespDto<?> userNameCheck(String username) {

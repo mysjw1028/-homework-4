@@ -8,9 +8,10 @@
 	<select id="buyList"
 		resultType="site.metacoding.firstapp.web.dto.request.buy.BuyListDto">
 		SELECT id, row_number() over(order BY id )as NO,
-		id, users_id, product_id, buy_qty, buy_price,
+		id,
+		users_id, product_id, buy_qty, buy_price,
 		buy_name,
-		created_at	
+		created_at
 		FROM buy WHERE users_id = #{id}
 	</select>
 
@@ -21,6 +22,9 @@
 		values(#{id}, #{productId}, #{buyQty},
 		#{buyPrice},#{buyName},NOW())
 	</insert>
-
+	
+	<delete id="deleteById">
+		DELETE FROM buy WHERE product_id = #{productId}
+	</delete>
 
 </mapper>

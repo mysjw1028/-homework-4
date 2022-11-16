@@ -6,6 +6,7 @@
 <div id="container">
 	<form action="/product/${product.productId}/delete" method="POST">
 
+
 		<h1>상세보기</h1>
 		<table class="table table-product" id="datatable" border="2">
 			<thead>

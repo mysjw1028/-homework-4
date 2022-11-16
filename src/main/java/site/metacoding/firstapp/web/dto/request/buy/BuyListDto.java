@@ -10,6 +10,7 @@ import site.metacoding.firstapp.domain.Users;
 @Getter
 public class BuyListDto {
 	private Integer id;
+	private Integer productId;
 	private String buyName;
 	private Integer buyQty;
 	private Integer buyPrice;
