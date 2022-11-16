@@ -64,4 +64,7 @@ INSERT INTO product(product_name, product_price, product_qty, created_at) VALUES
 INSERT INTO users(users_id, user_name,PASSWORD, email,created_at) VALUES('1', 'ssar','1234','ssar@nate.com', NOW());
 INSERT INTO users(users_id, user_name,PASSWORD, email,created_at) VALUES('2', 'cos','1234','cos@nate.com', NOW());
 INSERT INTO users(users_id, user_name,PASSWORD, email,created_at) VALUES('3', 'apple','1234','apple@nate.com', NOW());
+
+insert into admin(admin_name, password, email, created_at) values('mango', '1234', 'mango@nate.com', NOW());
+
 ```
